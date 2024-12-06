@@ -1,3 +1,7 @@
-pub struct Report {
-    levels: Vec<i32>,
+pub struct Report(Vec<i32>);
+
+impl Report {
+    pub fn levels(&self) -> &Vec<i32> {
+        &self.0
+    }
 }
