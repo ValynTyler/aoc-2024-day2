@@ -1,6 +1,4 @@
-pub struct Report {
-    levels: Vec<i32>,
-}
+use crate::report::Report;
 
 pub struct PuzzleInput {
     reports: Vec<Report>,
