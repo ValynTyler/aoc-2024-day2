@@ -6,5 +6,5 @@ fn main() {
     let input_string = include_str!("../../../input/example.txt");
     let input = PuzzleInput::from(input_string);
 
-    println!("{}", input.reports()[0]);
+    println!("{}", input);
 }

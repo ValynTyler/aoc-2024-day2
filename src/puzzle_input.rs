@@ -1,7 +1,21 @@
+use std::fmt::Display;
+
 use crate::report::Report;
 
 #[derive(Debug)]
 pub struct PuzzleInput(Vec<Report>);
+
+impl Display for PuzzleInput {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        writeln!(f, "[")?;
+        for item in &self.0 {
+            writeln!(f, "  {}", item)?;
+        }
+        writeln!(f, "]")?;
+
+        Ok(())
+    }
+}
 
 impl From::<&str> for PuzzleInput {
     fn from(value: &str) -> Self {
