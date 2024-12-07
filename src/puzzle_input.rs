@@ -32,3 +32,9 @@ impl From::<&str> for PuzzleInput {
         Self(reports)
     }
 }
+
+impl PuzzleInput {
+    pub fn reports(&self) -> &Vec<Report> {
+        &self.0
+    }
+}
