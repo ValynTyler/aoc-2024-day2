@@ -1,3 +1,4 @@
+#[derive(Debug)]
 pub struct Report(pub Vec<i32>);
 
 impl Report {

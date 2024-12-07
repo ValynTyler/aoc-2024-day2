@@ -1,5 +1,6 @@
 use crate::report::Report;
 
+#[derive(Debug)]
 pub struct PuzzleInput(Vec<Report>);
 
 impl From::<&str> for PuzzleInput {
