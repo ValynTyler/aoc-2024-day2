@@ -1,4 +1,4 @@
-use std::fmt::Display;
+use std::{cmp::Ordering, fmt::Display};
 
 #[derive(Debug)]
 pub struct Report(pub Vec<i32>);
@@ -18,5 +18,25 @@ impl Display for Report {
 impl Report {
     pub fn levels(&self) -> &Vec<i32> {
         &self.0
+    }
+
+    pub fn is_safe(&self) -> bool {
+        let levels = self.levels();
+
+        let mut last = levels[0];
+        let mut this = levels[1];
+
+        let order = this.cmp(&last);
+        if order == Ordering::Equal { return false };
+
+        for i in 2..levels.len() {
+            if (this - last).abs() > 3 { return false };
+            if this.cmp(&last) != order { return false };
+
+            last = this;
+            this = levels[i];
+        }
+
+        true
     }
 }
