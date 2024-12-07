@@ -27,14 +27,16 @@ impl Report {
         let mut this = levels[1];
 
         let order = this.cmp(&last);
+        
         if order == Ordering::Equal { return false };
+        if (this - last).abs() > 3 { return false };
 
         for i in 2..levels.len() {
-            if (this - last).abs() > 3 { return false };
-            if this.cmp(&last) != order { return false };
-
             last = this;
             this = levels[i];
+
+            if (this - last).abs() > 3 { return false };
+            if this.cmp(&last) != order { return false };
         }
 
         true
